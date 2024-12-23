@@ -236,14 +236,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6653071548983243086, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
       propertyPath: speed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1478789140}
+    - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d34f795190888f7479b7e557a1b5b971, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1881,7 +1889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &375264914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9811,14 +9819,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6653071548983243086, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
       propertyPath: speed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1478789140}
+    - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d34f795190888f7479b7e557a1b5b971, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9921,6 +9937,18 @@ PrefabInstance:
       propertyPath: collectiblePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Radius
+      value: 0.21522851
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0054506566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.z
+      value: 0.007681364
+      objectReference: {fileID: 0}
     - target: {fileID: 2380746324384575956, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
       propertyPath: m_Name
       value: LittleGhost_LP (11)
@@ -10137,6 +10165,22 @@ PrefabInstance:
       propertyPath: collectiblePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Radius
+      value: 0.21305208
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.x
+      value: -0.015876973
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.y
+      value: 0.3383684
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0076813637
+      objectReference: {fileID: 0}
     - target: {fileID: 2380746324384575956, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
       propertyPath: m_Name
       value: LittleGhost_LP (9)
@@ -17748,7 +17792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 335, y: 217}
+  m_AnchoredPosition: {x: -352, y: 217}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1330992641 stripped
@@ -20856,14 +20900,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6653071548983243086, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
       propertyPath: speed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1478789140}
+    - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d34f795190888f7479b7e557a1b5b971, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21727,7 +21779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1772012605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22011,6 +22063,22 @@ PrefabInstance:
       propertyPath: collectiblePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Height
+      value: 0.739605
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Radius
+      value: 0.21554437
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.x
+      value: 0.008651658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.z
+      value: 0.007681377
+      objectReference: {fileID: 0}
     - target: {fileID: 2380746324384575956, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
       propertyPath: m_Name
       value: LittleGhost_LP (8)
@@ -23117,6 +23185,22 @@ PrefabInstance:
       propertyPath: collectiblePrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 100000, guid: 15ca5b8fa431dc04291a79cadcd19874, type: 3}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Height
+      value: 0.73960507
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Radius
+      value: 0.23659793
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.x
+      value: -0.02113373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779608671735286182, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0076813716
+      objectReference: {fileID: 0}
     - target: {fileID: 2380746324384575956, guid: 0a9886423c8457a49af969bdb5e36d73, type: 3}
       propertyPath: m_Name
       value: LittleGhost_LP (10)
@@ -23664,14 +23748,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6653071548983243086, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
       propertyPath: speed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1478789140}
+    - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: damageToPlayer
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804810807143147078, guid: 13be1e2cb86a3bf41887dfafdb00fcda, type: 3}
+      propertyPath: explosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d34f795190888f7479b7e557a1b5b971, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

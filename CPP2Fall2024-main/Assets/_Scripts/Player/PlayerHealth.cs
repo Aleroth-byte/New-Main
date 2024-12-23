@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -27,7 +28,11 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            Destroy(gameObject);
+
             Die();
+
+            SceneManager.LoadScene("GameOver");
         }
     }
 

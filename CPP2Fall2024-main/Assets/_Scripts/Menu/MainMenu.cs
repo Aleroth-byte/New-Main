@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
 
 
-    public void start()
+    public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -57,13 +57,4 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
-    // Method to initialize the buttons (called when the script starts)
-    void Start()
-    {
-        // Set button listeners if they're assigned in the inspector
-        if (playButton != null) playButton.onClick.AddListener(PlayGame);
-        if (optionsButton != null) optionsButton.onClick.AddListener(ShowOptions);
-        if (quitButton != null) quitButton.onClick.AddListener(QuitGame);
-        if (creditsButton != null) creditsButton.onClick.AddListener(ShowCredits);
-    }
-}
+}    // Method to initialize the buttons (called when the script starts)
