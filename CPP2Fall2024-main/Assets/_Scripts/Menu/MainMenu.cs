@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         // Loads the scene with index 1 (assuming the main game scene is at index 1 in the Build Settings)
-        SceneManager.LoadScene("SampleScene");  // Change to your game's scene index or name
+        SceneManager.LoadScene("GameTime");  // Change to your game's scene index or name
     }
 
     public void ShowCredits()

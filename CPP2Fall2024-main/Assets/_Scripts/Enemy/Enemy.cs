@@ -30,33 +30,52 @@ public class Enemy : MonoBehaviour
     public float health = 100f;
 
     // Damage the enemy deals when colliding with the player
-    public float damage = 5f; // Adjust this value to control the enemy's damage
+    public float damage = 5f;
 
     // Detection Range
-    public float detectionRange = 10f; // Detection range radius
-
-    private SphereCollider detectionCollider; // To handle detection range
+    public float detectionRange = 10f;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
-        // Set up detection sphere
-        detectionCollider = gameObject.AddComponent<SphereCollider>();
-        detectionCollider.isTrigger = true;
-        detectionCollider.radius = detectionRange;
+        state = EnemyState.Patrol; // Start with patrol state
     }
 
     void Update()
     {
         if (player == null) return;
 
+        // Check if the player is within detection range
+        if (PlayerInDetectionRange())
+        {
+            state = EnemyState.Chase; // Switch to chase state
+        }
         else if (state == EnemyState.Chase)
+        {
+            state = EnemyState.Patrol; // Return to patrol if player is out of range
+        }
+
+        if (state == EnemyState.Chase)
         {
             Chase();
         }
+        else if (state == EnemyState.Patrol)
+        {
+            Patrol();
+        }
     }
 
+    void Patrol()
+    {
+        if (path.Length == 0) return;
+
+        // Patrol logic
+        if (agent.remainingDistance < distThreshold)
+        {
+            pathIndex = (pathIndex + 1) % path.Length;
+            agent.SetDestination(path[pathIndex].position);
+        }
+    }
 
     void Chase()
     {
@@ -75,29 +94,16 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if the enemy collides with the player
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Enemy touched the player!");
 
-            // Apply damage to the player and handle player death
+            // Apply damage to the player
             Health playerHealth = collision.gameObject.GetComponent<Health>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damage); // Deal the configured damage to the player
+                playerHealth.TakeDamage(damage);
             }
-
-            // No longer destroy the enemy here
-            // The enemy will keep existing and continue to chase/patrol
-        }
-
-        // Check if the enemy collides with the player's weapon
-        Weapon weapon = collision.gameObject.GetComponent<Weapon>();
-        if (weapon != null)
-        {
-            // Apply damage to the enemy
-            TakeDamage(10f); // Assuming a fixed damage value of 10 from the weapon
-            Debug.Log("Enemy damaged by weapon!");
         }
     }
 
@@ -112,48 +118,23 @@ public class Enemy : MonoBehaviour
         // Drop loot after death
         DeathLoot();
 
-        // Play death effects (optional)
         Debug.Log("Enemy died!");
-
-        // Destroy the enemy
-        Destroy(gameObject); // Adjust the delay as needed
+        Destroy(gameObject);
     }
 
     private void DeathLoot()
     {
-        // Spawn a random collectible at the ghost's position
         if (collectiblePrefabs.Length > 0)
         {
-            int randomIndex = UnityEngine.Random.Range(0, collectiblePrefabs.Length);
-            Vector3 spawnPosition = transform.position;
-
-            Instantiate(collectiblePrefabs[randomIndex], spawnPosition, Quaternion.identity);
-
-            Debug.Log($"Spawned {collectiblePrefabs[randomIndex].name} at {spawnPosition}");
-        }
-        else
-        {
-            Debug.LogError("No collectibles available to spawn.");
+            int randomIndex = Random.Range(0, collectiblePrefabs.Length);
+            Instantiate(collectiblePrefabs[randomIndex], transform.position, Quaternion.identity);
         }
     }
 
-    // Detect the player entering the detection range
-    private void OnTriggerEnter(Collider other)
+    bool PlayerInDetectionRange()
     {
-        if (other.CompareTag("Player"))
-        {
-            state = EnemyState.Chase; // Start chasing the player
-            Debug.Log("Player detected! Chasing...");
-        }
-    }
-
-    // Detect the player exiting the detection range (optional, to return to patrol)
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            state = EnemyState.Patrol; // Return to patrol state
-            Debug.Log("Player out of range. Returning to patrol...");
-        }
+        // Check if the player is within detection range
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        return distanceToPlayer <= detectionRange;
     }
 }

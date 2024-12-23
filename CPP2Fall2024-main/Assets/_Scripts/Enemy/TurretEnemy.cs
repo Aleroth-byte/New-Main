@@ -55,6 +55,5 @@ public class TurretEnemy : MonoBehaviour
         }
 
         // Debug to check where the projectile spawns
-        Debug.Log("Projectile spawned at: " + shootPoint.position);
     }
 }
